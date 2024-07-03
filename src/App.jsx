@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Supabase } from './components/supabase'
+import { Header } from './components/header'
+import { Container } from './components/container'
 
 const UserContext = createContext()
 
@@ -11,10 +13,7 @@ function App() {
   const [tasks, setTasks] = useState()
   const [subtasks, setSubtasks] = useState()
 
-
-
   useEffect(() => {
-
     getColumns()
     getTasks()
     getSubtasks()
@@ -41,8 +40,8 @@ function App() {
       setTasks(data)
     }
   }
-  const getSubtasks = async () => {
 
+  const getSubtasks = async () => {
     let { data, error } = await Supabase
       .from('Subtasks')
       .select('*')
@@ -54,12 +53,10 @@ function App() {
     }
   }
 
-  console.log(subtasks);
-
   return (
     <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks }}>
-
-
+      <Header />
+      <Container />
     </UserContext.Provider>
   )
 }
