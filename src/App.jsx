@@ -8,33 +8,54 @@ const UserContext = createContext()
 
 function App() {
   const [columns, setColumns] = useState();
+  const [tasks, setTasks] = useState()
+  const [subtasks, setSubtasks] = useState()
 
 
 
   useEffect(() => {
 
     getColumns()
+    getTasks()
+    getSubtasks()
   }, [])
+
   const getColumns = async () => {
 
-
-    let { data, error } = await Supabase
-      .from('Columns')
-      .select()
+    let { data, error } = await Supabase.from('Columns').select()
     if (error) {
       console.log(error);
     }
     else {
       setColumns(data)
     }
-
   }
 
+  const getTasks = async () => {
 
-  console.log(columns);
+    let { data, error } = await Supabase.from('Tasks').select()
+    if (error) {
+      console.log(error);
+    }
+    else {
+      setTasks(data)
+    }
+  }
+  const getSubtasks = async () => {
+
+    let { data, error } = await Supabase
+      .from('Substasks')
+      .select('*')
+    if (error) {
+      console.log(error);
+    }
+    else {
+      setSubtasks(data)
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ columns, setColumns }}>
-
+    <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks }}>
 
 
     </UserContext.Provider>
