@@ -10,12 +10,14 @@ function App() {
   const [columns, setColumns] = useState();
 
 
+
   useEffect(() => {
 
     getColumns()
   }, [])
-
   const getColumns = async () => {
+
+
     let { data, error } = await Supabase
       .from('Columns')
       .select()
