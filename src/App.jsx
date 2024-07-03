@@ -44,7 +44,7 @@ function App() {
   const getSubtasks = async () => {
 
     let { data, error } = await Supabase
-      .from('Substasks')
+      .from('Subtasks')
       .select('*')
     if (error) {
       console.log(error);
@@ -53,6 +53,8 @@ function App() {
       setSubtasks(data)
     }
   }
+
+  console.log(subtasks);
 
   return (
     <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks }}>
