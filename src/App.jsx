@@ -1,8 +1,9 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import './App.css'
 import { Supabase } from './components/supabase'
 import { Header } from './components/header'
 import { Content } from './components/content'
+import { AddNewTask } from './components/modal'
 
 export const UserContext = createContext()
 
@@ -10,6 +11,8 @@ function App() {
   const [columns, setColumns] = useState([]);
   const [tasks, setTasks] = useState([])
   const [subtasks, setSubtasks] = useState([])
+  const [isClicked, setIsClicked] = useState(false)
+  const modalRef = useRef()
 
   useEffect(() => {
     getColumns()
@@ -52,9 +55,10 @@ function App() {
   }
   return (
 
-    <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks }}>
+    <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks, isClicked, setIsClicked, modalRef }}>
       <Header />
       <Content />
+      <AddNewTask />
     </UserContext.Provider>
   )
 }

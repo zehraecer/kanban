@@ -3,6 +3,7 @@ import { UserContext } from "../App";
 
 export const Content = () => {
     const { columns, tasks } = useContext(UserContext)
+
     return (
         <>
             <div className="container">
@@ -19,7 +20,7 @@ export const Content = () => {
                             {tasks.filter(x => x.title_column === column.column_name)
                                 .map(task => {
                                     return (
-                                        <p className="taskTitle">{task.title}</p>
+                                        <p className="taskTitle" key={task.id}>{task.title}</p>
 
                                     )
                                 })}

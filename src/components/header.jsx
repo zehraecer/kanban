@@ -1,4 +1,15 @@
+import { useContext } from "react";
+import { UserContext } from "../App";
+import { AddNewTask } from "./modal";
+
 export const Header = () => {
+    const { isClicked, setIsClicked, modalRef } = useContext(UserContext)
+
+    const addNewTask = () => {
+        console.log(isClicked);
+        setIsClicked(isClicked => !isClicked)
+        modalRef.current.showModal();
+    };
 
     return (
         <>
@@ -13,7 +24,7 @@ export const Header = () => {
                     <h4>Platform Launch</h4>
                 </div>
                 <div className="header-right">
-                    <a>+ Add New Task</a>
+                    <a onClick={addNewTask}>+ Add New Task</a>
                 </div>
             </div>
         </>
