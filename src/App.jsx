@@ -1,17 +1,15 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Supabase } from './components/supabase'
 import { Header } from './components/header'
-import { Container } from './components/container'
+import { Content } from './components/content'
 
-const UserContext = createContext()
+export const UserContext = createContext()
 
 function App() {
-  const [columns, setColumns] = useState();
-  const [tasks, setTasks] = useState()
-  const [subtasks, setSubtasks] = useState()
+  const [columns, setColumns] = useState([]);
+  const [tasks, setTasks] = useState([])
+  const [subtasks, setSubtasks] = useState([])
 
   useEffect(() => {
     getColumns()
@@ -52,11 +50,11 @@ function App() {
       setSubtasks(data)
     }
   }
-
   return (
+
     <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks }}>
       <Header />
-      <Container />
+      <Content />
     </UserContext.Provider>
   )
 }
