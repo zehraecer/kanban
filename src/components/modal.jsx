@@ -3,7 +3,6 @@ import { UserContext } from "../App";
 import { Supabase } from "./supabase";
 
 export const AddNewTask = () => {
-
     const { modalRef, columns, setColumns, } = useContext(UserContext)
     const inputRef = useRef()
 
@@ -30,16 +29,12 @@ export const AddNewTask = () => {
         modalRef.current.close();
     }
     return (
-
         <>
             <dialog className="newTaskDialog" ref={modalRef}>
-
                 <h1>Add New Task</h1>
-
                 <form ref={inputRef} className="newTaskForm">
                     <span>Title</span>
                     <input type="text" name="newTask" placeholder="e.g. Take coffee bre" />
-
                     <span>Status</span>
                     <select name="status">
                         {columns.map(column => {
@@ -48,10 +43,8 @@ export const AddNewTask = () => {
                             )
                         })}
                     </select>
-
                     <button className="createTask" onClick={createTask}>Create Task</button>
                 </form>
-
             </dialog>
         </>
     )

@@ -9,7 +9,6 @@ export const Content = () => {
         setIsClickedColumn(isClickedColumn => !isClickedColumn)
         modalRef2.current.showModal()
     }
-
     return (
         <>
             <div className="container">
@@ -19,7 +18,6 @@ export const Content = () => {
                             <div className="container-one-column">
                                 <div>
                                     <h1></h1>
-
                                 </div>
                                 <h3>{column.column_name}</h3>
                             </div>
@@ -30,12 +28,9 @@ export const Content = () => {
 
                                     )
                                 })}
-
                         </div>
-
                     )
                 })}
-
                 <a className="newColumn" onClick={addNewColumn}>+ New Column</a>
             </div>
         </>

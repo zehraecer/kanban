@@ -65,9 +65,10 @@ span {
 
 .container {
   /* padding-inline: 24px; */
-  display: flex;
+  display: grid;
   flex-direction: row;
   justify-content: flex-start;
+  grid-template-columns: auto auto auto auto auto auto;
 
   h1 {
     padding: 8px;

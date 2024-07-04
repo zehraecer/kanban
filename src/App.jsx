@@ -23,9 +23,7 @@ function App() {
     getSubtasks()
   }, [columns])
 
-
   const getColumns = async () => {
-
     let { data, error } = await Supabase.from('Columns').select()
     if (error) {
       console.log(error);
@@ -36,7 +34,6 @@ function App() {
   }
 
   const getTasks = async () => {
-
     let { data, error } = await Supabase.from('Tasks').select()
     if (error) {
       console.log(error);
@@ -58,13 +55,11 @@ function App() {
     }
   }
   return (
-
     <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks, isClickedTask, setIsClickedTask, modalRef, modalRef2, isClickedColumn, setIsClickedColumn }}>
       <Header />
       <Content />
       <AddNewTask />
       <NewColumnModal />
-
     </UserContext.Provider>
   )
 }
