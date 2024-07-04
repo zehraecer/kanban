@@ -4,6 +4,7 @@ import { Supabase } from './components/supabase'
 import { Header } from './components/header'
 import { Content } from './components/content'
 import { AddNewTask } from './components/modal'
+import { NewColumnModal } from './components/newColumnModal'
 
 export const UserContext = createContext()
 
@@ -11,14 +12,17 @@ function App() {
   const [columns, setColumns] = useState([]);
   const [tasks, setTasks] = useState([])
   const [subtasks, setSubtasks] = useState([])
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClickedTask, setIsClickedTask] = useState(false)
+  const [isClickedColumn, setIsClickedColumn] = useState(false)
   const modalRef = useRef()
+  const modalRef2 = useRef()
 
   useEffect(() => {
     getColumns()
     getTasks()
     getSubtasks()
-  }, [])
+  }, [columns])
+
 
   const getColumns = async () => {
 
@@ -55,10 +59,12 @@ function App() {
   }
   return (
 
-    <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks, isClicked, setIsClicked, modalRef }}>
+    <UserContext.Provider value={{ columns, setColumns, tasks, setTasks, subtasks, setSubtasks, isClickedTask, setIsClickedTask, modalRef, modalRef2, isClickedColumn, setIsClickedColumn }}>
       <Header />
       <Content />
       <AddNewTask />
+      <NewColumnModal />
+
     </UserContext.Provider>
   )
 }

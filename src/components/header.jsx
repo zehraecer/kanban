@@ -3,11 +3,10 @@ import { UserContext } from "../App";
 import { AddNewTask } from "./modal";
 
 export const Header = () => {
-    const { isClicked, setIsClicked, modalRef } = useContext(UserContext)
+    const { isClickedTask, setIsClickedTask, modalRef } = useContext(UserContext)
 
     const addNewTask = () => {
-        console.log(isClicked);
-        setIsClicked(isClicked => !isClicked)
+        setIsClickedTask(isClickedTask => !isClickedTask)
         modalRef.current.showModal();
     };
 

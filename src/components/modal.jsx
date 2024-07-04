@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { UserContext } from "../App";
 import { Supabase } from "./supabase";
+
 export const AddNewTask = () => {
 
     const { modalRef, columns, setColumns, } = useContext(UserContext)
@@ -8,7 +9,6 @@ export const AddNewTask = () => {
 
     const createTask = async (e) => {
         e.preventDefault()
-        if (input.trim() === "") return
         const formData = new FormData(inputRef.current)
         const formObj = Object.fromEntries(formData.entries());
         console.log(formObj);
@@ -27,8 +27,7 @@ export const AddNewTask = () => {
             console.log(columns);
             setColumns([...columns, ...data])
         }
-
-        modalRef.current.closeModal();
+        modalRef.current.close();
     }
     return (
 
