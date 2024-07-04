@@ -1,9 +1,35 @@
 import { useContext, useRef } from "react";
 import { UserContext } from "../App";
+import { Supabase } from "./supabase";
 export const AddNewTask = () => {
 
-    const { modalRef, columns } = useContext(UserContext)
+    const { modalRef, columns, setColumns, } = useContext(UserContext)
     const inputRef = useRef()
+
+    const createTask = async (e) => {
+        e.preventDefault()
+        if (input.trim() === "") return
+        const formData = new FormData(inputRef.current)
+        const formObj = Object.fromEntries(formData.entries());
+        console.log(formObj);
+        const { data, error } = await Supabase
+            .from('Tasks')
+            .insert([
+                {
+                    title: formObj.newTask,
+                    title_column: formObj.status
+                }
+            ])
+            .select()
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(columns);
+            setColumns([...columns, ...data])
+        }
+
+        modalRef.current.closeModal();
+    }
     return (
 
         <>
@@ -19,10 +45,12 @@ export const AddNewTask = () => {
                     <select name="status">
                         {columns.map(column => {
                             return (
-                                <option value={column.column_name}>{column.column_name}</option>
+                                <option key={column.id} value={column.column_name}>{column.column_name}</option>
                             )
                         })}
                     </select>
+
+                    <button className="createTask" onClick={createTask}>Create Task</button>
                 </form>
 
             </dialog>
