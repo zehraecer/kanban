@@ -34,7 +34,7 @@ The project is structured as follows:
 
 2. Install the dependencies:
     ```sh
-  npm i
+    npm i
     # or
     yarn
     # or
