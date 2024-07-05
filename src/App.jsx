@@ -24,7 +24,7 @@ function App() {
   }, [columns])
 
   const getColumns = async () => {
-    let { data, error } = await Supabase.from('Columns').select()
+    let { data, error } = await Supabase.from('kanban_columns').select()
     if (error) {
       console.log(error);
     }
@@ -34,7 +34,7 @@ function App() {
   }
 
   const getTasks = async () => {
-    let { data, error } = await Supabase.from('Tasks').select()
+    let { data, error } = await Supabase.from('kanban_tasks').select()
     if (error) {
       console.log(error);
     }

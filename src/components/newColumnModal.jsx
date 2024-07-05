@@ -12,7 +12,7 @@ export const NewColumnModal = () => {
         const formObj = Object.fromEntries(formData.entries());
         console.log(formObj);
         const { data, error } = await Supabase
-            .from('Columns')
+            .from('kanban_columns')
             .insert([
                 { column_name: formObj.newColumn },
             ])

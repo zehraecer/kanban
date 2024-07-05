@@ -21,7 +21,7 @@ export const Content = () => {
                                 </div>
                                 <h3>{column.column_name}</h3>
                             </div>
-                            {tasks.filter(x => x.title_column === column.column_name)
+                            {tasks.filter(task => task.title_column === column.column_name)
                                 .map(task => {
                                     return (
                                         <p className="taskTitle" key={task.id}>{task.title}</p>

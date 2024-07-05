@@ -12,7 +12,7 @@ export const AddNewTask = () => {
         const formObj = Object.fromEntries(formData.entries());
         console.log(formObj);
         const { data, error } = await Supabase
-            .from('Tasks')
+            .from('kanban_tasks')
             .insert([
                 {
                     title: formObj.newTask,
@@ -23,7 +23,6 @@ export const AddNewTask = () => {
         if (error) {
             console.log(error);
         } else {
-            console.log(columns);
             setColumns([...columns, ...data])
         }
         modalRef.current.close();
