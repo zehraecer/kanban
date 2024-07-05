@@ -66,4 +66,4 @@ The project is structured as follows:
 5. Open the application in your browser at `http://localhost:3000`.
 
 Deployment
-The application is deployed on Vercel. You can access it at [https://kanban-beryl-two.vercel.app/](https://kanban-beryl-two.vercel.app)
+The application is deployed on Vercel. You can access it at [https://kanban-vese.vercel.app//](https://kanban-vese.vercel.app/)
