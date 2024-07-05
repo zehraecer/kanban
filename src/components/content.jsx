@@ -2,10 +2,9 @@ import { useContext } from "react";
 import { UserContext } from "../App";
 
 export const Content = () => {
-    const { modalRef2, columns, tasks, isClickedColumn, setIsClickedColumn } = useContext(UserContext)
+    const { modalRef2, columns, tasks, setIsClickedColumn } = useContext(UserContext)
 
     const addNewColumn = () => {
-        console.log(isClickedColumn);
         setIsClickedColumn(isClickedColumn => !isClickedColumn)
         modalRef2.current.showModal()
     }
