@@ -178,3 +178,51 @@ span {
 
   }
 }
+
+@media (max-width: 460px) {
+  .header {
+    padding: 0;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    padding-inline: 6px;
+  }
+
+  .header-left-one {
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    /* width: 100%; */
+    justify-content: center;
+  }
+
+  .header-right a {
+    /* width: 100%; */
+    text-align: center;
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 12px 20px
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
+  }
+
+  .newTaskForm input {
+    width: 100%;
+  }
+
+  .newTaskDialog {
+    padding: 62px;
+  }
+
+  .newColumn {
+    padding-block: 10px;
+    border-radius: 10px;
+  }
+
+}

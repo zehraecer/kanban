@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../App";
 
 export const Header = () => {
     const { setIsClickedTask, modalRef } = useContext(UserContext)
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 460);
 
     const addNewTask = () => {
         setIsClickedTask(isClickedTask => !isClickedTask)
@@ -19,7 +20,7 @@ export const Header = () => {
                     <h4>Platform Launch</h4>
                 </div>
                 <div className="header-right">
-                    <a onClick={addNewTask}>+ Add New Task</a>
+                    <a onClick={addNewTask}>{isMobile ? '+' : '+ Add New Task'}</a>
                 </div>
             </div>
         </>
