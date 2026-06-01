@@ -45,7 +45,7 @@ function App() {
 
   const getSubtasks = async () => {
     let { data, error } = await Supabase
-      .from('Subtasks')
+      .from('kanban_Subtasks')
       .select('*')
     if (error) {
       console.log(error);
